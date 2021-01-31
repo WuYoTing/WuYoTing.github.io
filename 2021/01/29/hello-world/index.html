@@ -489,7 +489,8 @@ window.addEventListener('pjax:success', () => {
     this.page.url = "https://wuyoting.github.io/2021/01/29/hello-world/";
     this.page.identifier = "2021/01/29/hello-world/";
     this.page.title = "測試用第一篇文章";
-    };
+    this.language = "zh_TW";
+  };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
       DISQUS.reset({
