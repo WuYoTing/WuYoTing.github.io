@@ -22,21 +22,20 @@
     var CONFIG = {"hostname":"wuyoting.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Fix Laravel 8 中出現 Target class controller does not exist 今天在練習Laravel 8時,照往常在api.php設定了Route沒想想到終端報了以下錯誤  Illuminate\Contracts\Container\BindingResolutionException Target class [AuthController] does n">
+  <meta name="description" content="[翻譯]How to Install Certbot for TLS on Ubuntu 18.04舊的配置方式(已棄用) base on python 2新的配置方式 base on python 3 甚麼是Certbot?Certbot是一種工具，可以自動執行通過Let’s Encrypt獲取簽名證書並與TLS一起使用。 對於大多數操作系統和Web伺服器配置，Certbot會創建簽名證書，管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fix Laravel 8 中出現 Target class controller does not exist">
-<meta property="og:url" content="https://wuyoting.github.io/2021/02/10/Fix-Laravel-8-%E4%B8%AD%E5%87%BA%E7%8F%BE-Target-class-controller-does-not-exist/index.html">
+<meta property="og:title" content="[翻譯]How to Install Certbot for TLS on Ubuntu 18.04">
+<meta property="og:url" content="https://wuyoting.github.io/2021/03/02/Untitled/index.html">
 <meta property="og:site_name" content="life will change">
-<meta property="og:description" content="Fix Laravel 8 中出現 Target class controller does not exist 今天在練習Laravel 8時,照往常在api.php設定了Route沒想想到終端報了以下錯誤  Illuminate\Contracts\Container\BindingResolutionException Target class [AuthController] does n">
+<meta property="og:description" content="[翻譯]How to Install Certbot for TLS on Ubuntu 18.04舊的配置方式(已棄用) base on python 2新的配置方式 base on python 3 甚麼是Certbot?Certbot是一種工具，可以自動執行通過Let’s Encrypt獲取簽名證書並與TLS一起使用。 對於大多數操作系統和Web伺服器配置，Certbot會創建簽名證書，管理">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-02-10T12:34:04.000Z">
-<meta property="article:modified_time" content="2021-02-23T13:13:24.755Z">
+<meta property="article:published_time" content="2021-03-02T14:33:47.000Z">
+<meta property="article:modified_time" content="2021-03-02T16:38:30.697Z">
 <meta property="article:author" content="tim">
-<meta property="article:tag" content="Laravel">
-<meta property="article:tag" content="後端">
+<meta property="article:tag" content="個人,心情分享,科技分享,技術分享,java,javascript,nodejs,php">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wuyoting.github.io/2021/02/10/Fix-Laravel-8-%E4%B8%AD%E5%87%BA%E7%8F%BE-Target-class-controller-does-not-exist/">
+<link rel="canonical" href="https://wuyoting.github.io/2021/03/02/Untitled/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>Fix Laravel 8 中出現 Target class controller does not exist | life will change</title>
+  <title>[翻譯]How to Install Certbot for TLS on Ubuntu 18.04 | life will change</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZXC2F2KHH"></script>
     <script data-pjax>
@@ -178,7 +177,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/02/10/Fix-Laravel-8-%E4%B8%AD%E5%87%BA%E7%8F%BE-Target-class-controller-does-not-exist/">
+    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/03/02/Untitled/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.ibb.co/GFxQCyj/tim-profile-pic.jpg">
@@ -191,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Fix Laravel 8 中出現 Target class controller does not exist
+          [翻譯]How to Install Certbot for TLS on Ubuntu 18.04
         </h1>
 
         <div class="post-meta">
@@ -201,24 +200,15 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2021-02-10 20:34:04" itemprop="dateCreated datePublished" datetime="2021-02-10T20:34:04+08:00">2021-02-10</time>
+              <time title="創建時間：2021-03-02 22:33:47" itemprop="dateCreated datePublished" datetime="2021-03-02T22:33:47+08:00">2021-03-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-02-23 21:13:24" itemprop="dateModified" datetime="2021-02-23T21:13:24+08:00">2021-02-23</time>
+                <time title="修改時間：2021-03-03 00:38:30" itemprop="dateModified" datetime="2021-03-03T00:38:30+08:00">2021-03-03</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Laravel/" itemprop="url" rel="index"><span itemprop="name">Laravel</span></a>
-                </span>
-            </span>
 
           
   
@@ -229,8 +219,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2021/02/10/Fix-Laravel-8-%E4%B8%AD%E5%87%BA%E7%8F%BE-Target-class-controller-does-not-exist/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/10/Fix-Laravel-8-中出現-Target-class-controller-does-not-exist/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/03/02/Untitled/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/02/Untitled/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -240,14 +230,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>674</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
+              <span>3 分鐘</span>
             </span>
 
         </div>
@@ -259,31 +249,79 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Fix-Laravel-8-中出現-Target-class-controller-does-not-exist"><a href="#Fix-Laravel-8-中出現-Target-class-controller-does-not-exist" class="headerlink" title="Fix Laravel 8 中出現 Target class controller does not exist"></a>Fix Laravel 8 中出現 Target class controller does not exist</h3><hr>
-<p>今天在練習Laravel 8時,照往常在api.php設定了Route沒想想到終端報了以下錯誤</p>
-<blockquote>
-<p>Illuminate\Contracts\Container\BindingResolutionException Target class [AuthController] does not exist</p>
-</blockquote>
-<p>我看了一下</p>
-<blockquote>
-<p>Route::get(‘register’, ‘AuthController@register’);</p>
-</blockquote>
-<p>沒有寫錯啊,直到我去查stack over flow才知道改了預設的寫法</p>
-<p>官方網站上也有實作上的差異<br><a target="_blank" rel="noopener" href="https://laravel.com/docs/8.x/routing#basic-routing">Laravel 8.x Basic Routing</a><br><br><a target="_blank" rel="noopener" href="https://laravel.com/docs/7.x/routing#basic-routing">Laravel 7.x Basic Routing</a><br></p>
+        <h1 id="翻譯-How-to-Install-Certbot-for-TLS-on-Ubuntu-18-04"><a href="#翻譯-How-to-Install-Certbot-for-TLS-on-Ubuntu-18-04" class="headerlink" title="[翻譯]How to Install Certbot for TLS on Ubuntu 18.04"></a>[翻譯]How to Install Certbot for TLS on Ubuntu 18.04</h1><p><a target="_blank" rel="noopener" href="https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/#before-you-begin">舊的配置方式(已棄用) base on python 2</a><br><br><a target="_blank" rel="noopener" href="https://northell.medium.com/react-vs-vue-vs-angular-what-to-choose-for-web-development-abc5565d3f11">新的配置方式 base on python 3</a><br></p>
+<h2 id="甚麼是Certbot"><a href="#甚麼是Certbot" class="headerlink" title="甚麼是Certbot?"></a>甚麼是Certbot?</h2><p>Certbot是一種工具，可以自動執行通過Let’s Encrypt獲取簽名證書並與TLS一起使用。</p>
+<p>對於大多數操作系統和Web伺服器配置，Certbot會創建簽名證書，管理Web伺服器以接受安全連接，並可以自動續訂已創建的證書。 在大多數情況下，Certbot可以無縫啟用HTTPS，而不會導致服務器停機。</p>
+<h2 id="在開始之前"><a href="#在開始之前" class="headerlink" title="在開始之前"></a>在開始之前</h2><p>確保您已經註冊了完全合格的域名（FQDN），並設置了指向您的Linode的公共IPv4和IPv6地址的A和AAAA DNS記錄。 請查閱我們的DNS記錄：簡介和DNS管理器指南，以獲取有關設置域的幫助。</p>
 <a id="more"></a>
-
-<p>在laravel 8中他把app\Providers\RouteServiceProvider中的</p>
 <blockquote>
-<p>//protected $namespace = ‘App\Http\Controllers’;</p>
+<p>如果您使用的是Apache，請在以下部分中將每個nginx更改為apache。</p>
 </blockquote>
-<p>給註解掉了<br><br>這使得我們在編寫時必須在route中使用use把我們使用的controller給引入</p>
-<p><strong>解法</strong><br><br>如果你習慣使用舊的設計方式可以在<br><br>修改<code>App\Providers\RouteServiceProvider:</code></p>
-<pre>
-// protected $namespace = 'App\\Http\\Controllers';
-</pre>
+<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><ol>
+<li><p>安裝Certbot和特定於Web伺服器的套件，然後運行Certbot：:</p>
+<pre><code> sudo apt-get update
+ sudo add-apt-repository ppa:certbot/certbot
+ sudo apt-get install python-certbot-nginx
+ sudo certbot --nginx
+</code></pre>
+</li>
+<li><p>Certbot將詢問有關被註冊網站的資訊。你的回覆將保存為證書的一部分：:</p>
+<pre><code># sudo certbot --nginx
+ Saving debug log to /var/log/letsencrypt/letsencrypt.log
+ Plugins selected: Authenticator nginx, Installer nginx
+ Enter email address (used for urgent renewal and security notices) (Enter &#39;c&#39; to
+ cancel): admin@example.com
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ Please read the Terms of Service at
+ https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must
+ agree in order to register with the ACME server at
+ https://acme-v02.api.letsencrypt.org/directory
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ (A)gree/(C)ancel: A
 
-<hr>
-<p>參考自:<br><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/63807930/target-class-controller-does-not-exist-laravel-8">Target class controller does not exist - Laravel 8</a><br><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/63807930/target-class-controller-does-not-exist-laravel-8">Target class does not exist. problem in laravel 8 [duplicate]</a><br></p>
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ Would you be willing to share your email address with the Electronic Frontier
+ Foundation, a founding partner of the Let&#39;s Encrypt project and the non-profit
+ organization that develops Certbot? We&#39;d like to send you email about our work
+ encrypting the web, EFF news, campaigns, and ways to support digital freedom.
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ (Y)es/(N)o: N
+ No names were found in your configuration files. Please enter in your domain
+ name(s) (comma and/or space separated)  (Enter &#39;c&#39; to cancel): www.rajie.wiki
+ Obtaining a new certificate
+ Performing the following challenges:
+ http-01 challenge for www.example.com
+ Waiting for verification...
+ Cleaning up challenges
+ Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/default
+
+ Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 1: No redirect - Make no further changes to the webserver configuration.
+ 2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+ new sites, or if you&#39;re confident your site works on HTTPS. You can undo this
+ change by editing your web server&#39;s configuration.
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ Select the appropriate number [1-2] then [enter] (press &#39;c&#39; to cancel): 2
+ Redirecting all traffic on port 80 to ssl in /etc/nginx/sites-enabled/default
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</code></pre>
+</li>
+<li><p> Certbot還會詢問你是否要自動將HTTP流量重導向到HTTPS流量。 建議您選擇此選項。 </p>
+</li>
+<li><p> 工具完成後，Certbot將所有生成的密鑰和已頒發的證書存儲在 **/ etc / letsencrypt / live / $ domain ** 目錄中，其中$ domain是在Certbot證書生成步驟中輸入的網域的名稱。</p>
+</li>
+</ol>
+<p>Certbot建議將您的Web伺服器配置指向默認證書目錄或建立符號連結。 密鑰和證書不應移動到其他目錄。<br>最後，Certbot將更新您的Web伺服器配置，以便它使用新證書，並且如果您選擇了該選項，還將HTTP流量重定向到HTTPS。</p>
+<ol start="5">
+<li>如果您在Linode上配置了防火牆，則可能需要添加防火牆規則，以允許傳入和傳出連接到HTTPS服務。 例如，如果您使用的是UFW，則可以使用以下命令啟用HTTP和HTTPS流量 :<pre><code> sudo systemctl start ufw &amp;&amp; sudo systemctl enable ufw
+ sudo ufw allow http
+ sudo ufw allow https
+ sudo ufw enable
+</code></pre>
+</li>
+</ol>
+<h2 id="譯者結語"><a href="#譯者結語" class="headerlink" title="譯者結語"></a>譯者結語</h2><p>前陣子官方把舊版的py2的Certbot更新成py3了，連帶著硬體上的變更，以及部分功能的棄用，auto renew功能還能不能用，筆者有找到方法會立即更新上去</p>
 
     </div>
 
@@ -295,11 +333,11 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>作者： </strong>Tim
+    <strong>作者： </strong>tim
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="https://wuyoting.github.io/2021/02/10/Fix-Laravel-8-%E4%B8%AD%E5%87%BA%E7%8F%BE-Target-class-controller-does-not-exist/" title="Fix Laravel 8 中出現 Target class controller does not exist">https://wuyoting.github.io/2021/02/10/Fix-Laravel-8-中出現-Target-class-controller-does-not-exist/</a>
+    <a href="https://wuyoting.github.io/2021/03/02/Untitled/" title="[翻譯]How to Install Certbot for TLS on Ubuntu 18.04">https://wuyoting.github.io/2021/03/02/Untitled/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -309,10 +347,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Laravel/" rel="tag"># Laravel</a>
-              <a href="/tags/%E5%BE%8C%E7%AB%AF/" rel="tag"># 後端</a>
-          </div>
 
         
 
@@ -320,13 +354,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/01/Laravel-%E8%AA%BF%E6%95%B4%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%94%BF%E7%AD%96/" rel="prev" title="Laravel 調整版本更新政策">
-      <i class="fa fa-chevron-left"></i> Laravel 調整版本更新政策
+    <a href="/2021/02/18/%E7%BF%BB%E8%AD%AF-React-Vs-Vue-Vs-Angular-%E7%B6%B2%E7%AB%99%E9%96%8B%E7%99%BC%E4%B8%8A%E8%A9%B2%E5%A6%82%E4%BD%95%E9%81%B8%E6%93%87/" rel="prev" title="[翻譯]React Vs Vue Vs Angular: 網站開發上該如何選擇">
+      <i class="fa fa-chevron-left"></i> [翻譯]React Vs Vue Vs Angular: 網站開發上該如何選擇
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/02/18/%E7%BF%BB%E8%AD%AF-React-Vs-Vue-Vs-Angular-%E7%B6%B2%E7%AB%99%E9%96%8B%E7%99%BC%E4%B8%8A%E8%A9%B2%E5%A6%82%E4%BD%95%E9%81%B8%E6%93%87/" rel="next" title="[翻譯]React Vs Vue Vs Angular: 網站開發上該如何選擇">
-      [翻譯]React Vs Vue Vs Angular: 網站開發上該如何選擇 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -392,7 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fix-Laravel-8-%E4%B8%AD%E5%87%BA%E7%8F%BE-Target-class-controller-does-not-exist"><span class="nav-number">1.</span> <span class="nav-text">Fix Laravel 8 中出現 Target class controller does not exist</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BF%BB%E8%AD%AF-How-to-Install-Certbot-for-TLS-on-Ubuntu-18-04"><span class="nav-number">1.</span> <span class="nav-text">[翻譯]How to Install Certbot for TLS on Ubuntu 18.04</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9A%E9%BA%BC%E6%98%AFCertbot"><span class="nav-number">1.1.</span> <span class="nav-text">甚麼是Certbot?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E9%96%8B%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="nav-number">1.2.</span> <span class="nav-text">在開始之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B"><span class="nav-number">1.3.</span> <span class="nav-text">開始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AD%AF%E8%80%85%E7%B5%90%E8%AA%9E"><span class="nav-number">1.4.</span> <span class="nav-text">譯者結語</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -600,9 +631,9 @@ window.addEventListener('pjax:success', () => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://wuyoting.github.io/2021/02/10/Fix-Laravel-8-%E4%B8%AD%E5%87%BA%E7%8F%BE-Target-class-controller-does-not-exist/";
-    this.page.identifier = "2021/02/10/Fix-Laravel-8-中出現-Target-class-controller-does-not-exist/";
-    this.page.title = "Fix Laravel 8 中出現 Target class controller does not exist";
+    this.page.url = "https://wuyoting.github.io/2021/03/02/Untitled/";
+    this.page.identifier = "2021/03/02/Untitled/";
+    this.page.title = "[翻譯]How to Install Certbot for TLS on Ubuntu 18.04";
     this.language = "zh_TW";
   };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
