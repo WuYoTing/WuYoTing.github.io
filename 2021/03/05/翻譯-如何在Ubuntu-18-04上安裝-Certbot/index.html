@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -30,7 +30,7 @@
 <meta property="og:description" content="[翻譯]How to Install Certbot for TLS on Ubuntu 18.04舊的配置方式(已棄用) base on python 2新的配置方式 base on python 3 甚麼是Certbot?Certbot是一種工具，可以自動執行通過Let’s Encrypt獲取簽名證書並與TLS一起使用。 對於大多數操作系統和Web伺服器配置，Certbot會創建簽名證書，管理">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-03-05T15:00:49.000Z">
-<meta property="article:modified_time" content="2021-03-05T15:01:31.802Z">
+<meta property="article:modified_time" content="2021-03-06T03:18:51.981Z">
 <meta property="article:author" content="tim">
 <meta property="article:tag" content="個人,心情分享,科技分享,技術分享,java,javascript,nodejs,php">
 <meta name="twitter:card" content="summary">
@@ -199,10 +199,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-03-05 23:00:49 / 修改時間：23:01:31" itemprop="dateCreated datePublished" datetime="2021-03-05T23:00:49+08:00">2021-03-05</time>
+              <time title="創建時間：2021-03-05 23:00:49" itemprop="dateCreated datePublished" datetime="2021-03-05T23:00:49+08:00">2021-03-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-03-06 11:18:51" itemprop="dateModified" datetime="2021-03-06T11:18:51+08:00">2021-03-06</time>
+              </span>
 
           
   
@@ -247,7 +253,7 @@
 <h2 id="甚麼是Certbot"><a href="#甚麼是Certbot" class="headerlink" title="甚麼是Certbot?"></a>甚麼是Certbot?</h2><p>Certbot是一種工具，可以自動執行通過Let’s Encrypt獲取簽名證書並與TLS一起使用。</p>
 <p>對於大多數操作系統和Web伺服器配置，Certbot會創建簽名證書，管理Web伺服器以接受安全連接，並可以自動續訂已創建的證書。 在大多數情況下，Certbot可以無縫啟用HTTPS，而不會導致服務器停機。</p>
 <h2 id="在開始之前"><a href="#在開始之前" class="headerlink" title="在開始之前"></a>在開始之前</h2><p>確保您已經註冊了完全合格的域名（FQDN），並設置了指向您的Linode的公共IPv4和IPv6地址的A和AAAA DNS記錄。 請查閱我們的DNS記錄：簡介和DNS管理器指南，以獲取有關設置域的幫助。</p>
-<a id="more"></a>
+<span id="more"></span>
 <blockquote>
 <p>如果您使用的是Apache，請在以下部分中將每個nginx更改為apache。</p>
 </blockquote>
@@ -260,12 +266,13 @@
 </li>
 <li> Certbot將詢問有關被註冊網站的資訊。你的回覆將保存為證書的一部分：:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"># sudo certbot --nginx</span><br><span class="line">    Saving debug log to &#x2F;var&#x2F;log&#x2F;letsencrypt&#x2F;letsencrypt.log</span><br><span class="line">    Plugins selected: Authenticator nginx, Installer nginx</span><br><span class="line">    Enter email address (used for urgent renewal and security notices) (Enter &#39;c&#39; to</span><br><span class="line">    cancel): admin@example.com</span><br><span class="line">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">    Please read the Terms of Service at</span><br><span class="line">    https:&#x2F;&#x2F;letsencrypt.org&#x2F;documents&#x2F;LE-SA-v1.2-November-15-2017.pdf. You must</span><br><span class="line">    agree in order to register with the ACME server at</span><br><span class="line">    https:&#x2F;&#x2F;acme-v02.api.letsencrypt.org&#x2F;directory</span><br><span class="line">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">    (A)gree&#x2F;(C)ancel: A</span><br><span class="line"></span><br><span class="line">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">    Would you be willing to share your email address with the Electronic Frontier</span><br><span class="line">    Foundation, a founding partner of the Let&#39;s Encrypt project and the non-profit</span><br><span class="line">    organization that develops Certbot? We&#39;d like to send you email about our work</span><br><span class="line">    encrypting the web, EFF news, campaigns, and ways to support digital freedom.</span><br><span class="line">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">    (Y)es&#x2F;(N)o: N</span><br><span class="line">    No names were found in your configuration files. Please enter in your domain</span><br><span class="line">    name(s) (comma and&#x2F;or space separated)  (Enter &#39;c&#39; to cancel): www.rajie.wiki</span><br><span class="line">    Obtaining a new certificate</span><br><span class="line">    Performing the following challenges:</span><br><span class="line">    http-01 challenge for www.example.com</span><br><span class="line">    Waiting for verification...</span><br><span class="line">    Cleaning up challenges</span><br><span class="line">    Deploying Certificate to VirtualHost &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line"></span><br><span class="line">    Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.</span><br><span class="line">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">    1: No redirect - Make no further changes to the webserver configuration.</span><br><span class="line">    2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for</span><br><span class="line">    new sites, or if you&#39;re confident your site works on HTTPS. You can undo this</span><br><span class="line">    change by editing your web server&#39;s configuration.</span><br><span class="line">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">    Select the appropriate number [1-2] then [enter] (press &#39;c&#39; to cancel): 2</span><br><span class="line">    Redirecting all traffic on port 80 to ssl in &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><br><span class="line">&#96;&#96;&#96;   </span><br><span class="line">3.  Certbot還會詢問你是否要自動將HTTP流量重導向到HTTPS流量。 建議您選擇此選項。 </span><br><span class="line">4.  工具完成後，Certbot將所有生成的密鑰和已頒發的證書存儲在 **&#x2F; etc &#x2F; letsencrypt &#x2F; live &#x2F; $ domain ** 目錄中，其中$ domain是在Certbot證書生成步驟中輸入的網域的名稱。</span><br></pre></td></tr></table></figure>
 Certbot建議將您的Web伺服器配置指向默認證書目錄或建立符號連結。 密鑰和證書不應移動到其他目錄。<br>最後，Certbot將更新您的Web伺服器配置，以便它使用新證書，並且如果您選擇了該選項，還將HTTP流量重定向到HTTPS。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5.  如果您在Linode上配置了防火牆，則可能需要添加防火牆規則，以允許傳入和傳出連接到HTTPS服務。 例如，如果您使用的是UFW，則可以使用以下命令啟用HTTP和HTTPS流量 :</span><br></pre></td></tr></table></figure>
-sudo systemctl start ufw &amp;&amp; sudo systemctl enable ufw<br>sudo ufw allow http<br>sudo ufw allow https<br>sudo ufw enable<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">附註.如果把DNS設定在CloudFlareg上時你可能會遇到</span><br></pre></td></tr></table></figure>
+sudo systemctl start ufw &amp;&amp; sudo systemctl enable ufw<br>sudo ufw allow http<br>sudo ufw allow https<br>sudo ufw enable<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6.  附註.如果把DNS設定在CloudFlareg上時你可能會遇到</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 Domain: 你的domain<br>Type: unauthorized<br>Detail: Invalid response from<br>[2606:4700:30::681b:be3f]: “<html lang=“en-US”
 class=“boxed”><meta charset=“UTF-8”>&lt;meta<br>name=“viewport” content=“width=device-width, i”</li>
 </ol>
 <p>To fix these errors, please make sure that your domain name was<br>entered correctly and the DNS A/AAAA record(s) for that domain<br>contain(s) the right IP address.</p>
-<p>```<br>像這樣的問題,我個人也有遇到<br>我goole後找到了這篇<br><a target="_blank" rel="noopener" href="https://community.letsencrypt.org/t/cant-renew-cert-behind-cloudflare-lemp-letsencrypt-cloudflare/99161">解決方法原文</a><br><br>把Cloudflare的 SSL 模式改為 <strong>彈性</strong><br>重跑一次 sudo certbot –nginx就解決了</p>
+<p>```</p>
+<p>像這樣的問題,我個人也有遇到<br>我goole後找到了這篇<br><a target="_blank" rel="noopener" href="https://community.letsencrypt.org/t/cant-renew-cert-behind-cloudflare-lemp-letsencrypt-cloudflare/99161">解決方法原文</a><br><br>把Cloudflare的 SSL 模式改為 <strong>彈性</strong><br>重跑一次 sudo certbot –nginx就解決了</p>
 <h2 id="譯者結語"><a href="#譯者結語" class="headerlink" title="譯者結語"></a>譯者結語</h2><p>前陣子官方把舊版的py2的Certbot更新成py3了，連帶著硬體上的變更，以及部分功能的棄用，auto renew功能還能不能用，筆者有找到方法會立即更新上去</p>
 
     </div>
