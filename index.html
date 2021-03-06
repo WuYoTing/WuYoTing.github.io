@@ -172,6 +172,142 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.ibb.co/GFxQCyj/tim-profile-pic.jpg">
+      <meta itemprop="name" content="tim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="life will change">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/" class="post-title-link" itemprop="url">[心得 ]How Google Tests Software</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-03-06 16:52:18 / 修改時間：17:16:07" itemprop="dateCreated datePublished" datetime="2021-03-06T16:52:18+08:00">2021-03-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%A6/" itemprop="url" rel="index"><span itemprop="name">軟體測試</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/06/心得-How-Google-TestsSoftware/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>870</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>身為一個菜鳥的工程師免不了都對於GOOLE的開發及測試作法感到有興趣，在line社群中意外的得知了這本書就從海鮮拍賣上拉了古書翻譯本下來</p>
+<h2 id="Chapter-1-gooole-測試軟體介紹"><a href="#Chapter-1-gooole-測試軟體介紹" class="headerlink" title="Chapter  1 - gooole 測試軟體介紹"></a>Chapter  1 - gooole 測試軟體介紹</h2><ol>
+<li> goole是一間奠基在創新與速度上的公司，在這樣的環境下進行的測試比須非常敏捷，有時邊開發邊寫測試會讓兩者交織，有時測試根本就是獨立進行</li>
+<li> 測試不會造成摩擦而會讓創新與開發的速度慢下來</li>
+<li> 別雇用太多的測試者(品質是開發者需要去維護的)</li>
+<li> goole重視品質勝過功能</li>
+<li> <strong>測試必須是開發過程中不可被忽略的面向，而開發與測試的融合就可以達到品質</strong>的要求</li>
+<li> 組織分工</li>
+</ol>
+<ul>
+<li>SWE(software engineer)<ol>
+<li> 建立設計文件</li>
+<li> 設計架構</li>
+<li> 撰寫TDD與單元測試</li>
+</ol>
+</li>
+<li>SET(software engineer in test)<ol>
+<li> 以開發者角色</li>
+<li> 檢視設計且特別注意程式品質與風險</li>
+<li> 編寫單元測試框架與自動化</li>
+</ol>
+</li>
+<li>TE(Test Engineer)<ol>
+<li> 以使用者角度</li>
+<li> 撰寫自動化腳本的程式碼,模擬使用者情境的程式碼</li>
+<li> 組織整體品質實作</li>
+<li> 解釋測試結果</li>
+</ol>
+</li>
+</ul>
+<ol start="7">
+<li> goole是通常會製作出”最小可用產品”</li>
+<li> goole使用小,中,大測試來替代程式碼、整合與系統測試，用意是強調<strong>範圍比形式更加重要</strong></li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/03/05/%E7%BF%BB%E8%AD%AF-%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-18-04%E4%B8%8A%E5%AE%89%E8%A3%9D-Certbot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -203,8 +339,17 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-03-06 11:48:29" itemprop="dateModified" datetime="2021-03-06T11:48:29+08:00">2021-03-06</time>
+                <time title="修改時間：2021-03-06 17:25:08" itemprop="dateModified" datetime="2021-03-06T17:25:08+08:00">2021-03-06</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BB%9F%E9%AB%94%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">軟體安全</span></a>
+                </span>
+            </span>
 
           
   
@@ -245,7 +390,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="翻譯-How-to-Install-Certbot-for-TLS-on-Ubuntu-18-04"><a href="#翻譯-How-to-Install-Certbot-for-TLS-on-Ubuntu-18-04" class="headerlink" title="[翻譯]How to Install Certbot for TLS on Ubuntu 18.04"></a>[翻譯]How to Install Certbot for TLS on Ubuntu 18.04</h1><p><a target="_blank" rel="noopener" href="https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/#before-you-begin">舊的配置方式(已棄用) base on python 2</a><br><br><a target="_blank" rel="noopener" href="https://northell.medium.com/react-vs-vue-vs-angular-what-to-choose-for-web-development-abc5565d3f11">新的配置方式 base on python 3</a><br></p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在我自己在linode vps憑證時的紀錄<br><br><a target="_blank" rel="noopener" href="https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/#before-you-begin">舊的配置方式(已棄用) base on python 2</a><br><br><a target="_blank" rel="noopener" href="https://www.linode.com/docs/guides/how-to-install-certbot-on-ubuntu-18-04/">新的配置方式 base on python 3</a><br></p>
 <h2 id="甚麼是Certbot"><a href="#甚麼是Certbot" class="headerlink" title="甚麼是Certbot?"></a>甚麼是Certbot?</h2><p>Certbot是一種工具，可以自動執行通過Let’s Encrypt獲取簽名證書並與TLS一起使用。</p>
 <p>對於大多數操作系統和Web伺服器配置，Certbot會創建簽名證書，管理Web伺服器以接受安全連接，並可以自動續訂已創建的證書。 在大多數情況下，Certbot可以無縫啟用HTTPS，而不會導致服務器停機。</p>
 <h2 id="在開始之前"><a href="#在開始之前" class="headerlink" title="在開始之前"></a>在開始之前</h2><p>確保您已經註冊了完全合格的域名（FQDN），並設置了指向您的Linode的公共IPv4和IPv6地址的A和AAAA DNS記錄。 請查閱我們的DNS記錄：簡介和DNS管理器指南，以獲取有關設置域的幫助。</p>
@@ -298,9 +443,24 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-03-05 22:43:40 / 修改時間：22:43:47" itemprop="dateCreated datePublished" datetime="2021-03-05T22:43:40+08:00">2021-03-05</time>
+              <time title="創建時間：2021-03-05 22:43:40" itemprop="dateCreated datePublished" datetime="2021-03-05T22:43:40+08:00">2021-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-03-06 17:09:21" itemprop="dateModified" datetime="2021-03-06T17:09:21+08:00">2021-03-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
             </span>
 
           
@@ -323,7 +483,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>4.5k</span>
+              <span>4.4k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
@@ -342,7 +502,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="React-Vs-Vue-Vs-Angular-網站開發上該如何選擇"><a href="#React-Vs-Vue-Vs-Angular-網站開發上該如何選擇" class="headerlink" title="React Vs Vue Vs Angular: 網站開發上該如何選擇"></a>React Vs Vue Vs Angular: 網站開發上該如何選擇</h1><p><a target="_blank" rel="noopener" href="https://northell.medium.com/react-vs-vue-vs-angular-what-to-choose-for-web-development-abc5565d3f11">翻譯來源</a><br><a target="_blank" rel="noopener" href="https://northell.medium.com/react-vs-vue-vs-angular-what-to-choose-for-web-development-abc5565d3f11">翻譯來源</a><br>隨著社交媒體和用戶生成的內容爆炸式的增長，網際網路一直在變好。為了跟上這些變化的步伐，並提供更多的互動性，開發者開始構建函式庫和框架，使得建立互動式網站更加的容易。2006年，John Resig发布了jQuery，使得在HTML中編寫客戶端語言變得更加容易。隨著時間的推移，其他類似的專案出現了。剛開始，這些專案是大型、單一的此外他們還把自己的願景強加給開發者。而到了現在，已經轉向為開發緊湊、輕量級且非常容易添加到任何應用的函式庫。讓我們來看看其中最流行的三個。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="https://northell.medium.com/react-vs-vue-vs-angular-what-to-choose-for-web-development-abc5565d3f11">翻譯來源</a><br><a target="_blank" rel="noopener" href="https://northell.medium.com/react-vs-vue-vs-angular-what-to-choose-for-web-development-abc5565d3f11">翻譯來源</a><br>隨著社交媒體和用戶生成的內容爆炸式的增長，網際網路一直在變好。為了跟上這些變化的步伐，並提供更多的互動性，開發者開始構建函式庫和框架，使得建立互動式網站更加的容易。2006年，John Resig发布了jQuery，使得在HTML中編寫客戶端語言變得更加容易。隨著時間的推移，其他類似的專案出現了。剛開始，這些專案是大型、單一的此外他們還把自己的願景強加給開發者。而到了現在，已經轉向為開發緊湊、輕量級且非常容易添加到任何應用的函式庫。讓我們來看看其中最流行的三個。</p>
 <h2 id="JavaScript框架概述"><a href="#JavaScript框架概述" class="headerlink" title="JavaScript框架概述"></a>JavaScript框架概述</h2><p>開始一個新專案總是要做決定。其中一個關鍵的就是選擇合適的框架或函式庫。幸運的是，Vue.js是一個非常通用的庫，可以處理各種任務。</p>
 <h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><p>Vue.js是一個函式庫，它允許你在任何使用JavaScript的編碼環境中注入交互性和附加功能。Vue既可以用於單獨的頁面，解決簡單的任務，也可以作為完善的工業應用基礎。Vue.js是一個用於構建圖形用戶界面的進階框架。當與現代工具和附加函式庫結合使用時，它也適合構建覆雜的單向應用程式。<br>Vue函式庫最大的優勢之一是它不需要任何特殊的知識。任何Vue的應用程式都是使用HTML、CSS和JavaScript所編寫的–熟悉所有工具讓你可以立即投入工作。即使你以前從未做過客戶端開發，你也可以隨時利用以前的經驗，使用MVC設計模式，這與MVVM非常相似。</p>
           <!--noindex-->
@@ -402,7 +562,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-02-23 21:13:24" itemprop="dateModified" datetime="2021-02-23T21:13:24+08:00">2021-02-23</time>
+                <time title="修改時間：2021-03-06 17:09:21" itemprop="dateModified" datetime="2021-03-06T17:09:21+08:00">2021-03-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -853,20 +1013,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
