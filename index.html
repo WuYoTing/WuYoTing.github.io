@@ -172,6 +172,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/03/27/firebase-php-jwt-Cannot-handle-token-prior-to-timestamp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.ibb.co/GFxQCyj/tim-profile-pic.jpg">
+      <meta itemprop="name" content="tim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="life will change">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/27/firebase-php-jwt-Cannot-handle-token-prior-to-timestamp/" class="post-title-link" itemprop="url">[Debug] firebase/php-jwt Cannot handle token prior to[timestamp] 的解決過程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-03-27 20:33:01 / 修改時間：20:34:05" itemprop="dateCreated datePublished" datetime="2021-03-27T20:33:01+08:00">2021-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Debug/" itemprop="url" rel="index"><span itemprop="name">Debug</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/03/27/firebase-php-jwt-Cannot-handle-token-prior-to-timestamp/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/27/firebase-php-jwt-Cannot-handle-token-prior-to-timestamp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="firebase-php-jwt-Cannot-handle-token-prior-to-timestamp-的解決過程"><a href="#firebase-php-jwt-Cannot-handle-token-prior-to-timestamp-的解決過程" class="headerlink" title="firebase/php-jwt Cannot handle token prior to [timestamp] 的解決過程"></a>firebase/php-jwt Cannot handle token prior to [timestamp] 的解決過程</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>在進行公司專案開發時，有使用到LINE Login v2.1的oauth2，在導到callback URL後會在service層打line的<br>oauth2，但每次登入失敗，log紀錄後看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[2021-03-26 09:34:51] local.ERROR: Line Login Error, JWT decode error</span><br><span class="line">Cannot handle token prior to 2021-03-26T09:34:53+0800  </span><br><span class="line"></span><br><span class="line">[2021-03-26 09:36:35] local.ERROR: payload-&gt;iat &#x3D; 1616722597 and time() &#x3D; 1616722595 leeway&#x3D; 0  </span><br></pre></td></tr></table></figure>
+<p>payload-&gt;iat 是ID token 產生的時間 (UNIX 時間)<br>time() 是本機產生的時間 (UNIX 時間)<br>在v5.2.0中的JWT.php中寫道</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Check that this token has been created before &#39;now&#39;. This prevents</span><br><span class="line">&#x2F;&#x2F; using tokens that have been created for later use (and haven&#39;t</span><br><span class="line">&#x2F;&#x2F; correctly used the nbf claim).</span><br><span class="line">if (isset($payload-&gt;iat) &amp;&amp; $payload-&gt;iat &gt; ($timestamp + static::$leeway)) &#123;</span><br><span class="line">    throw new BeforeValidException(</span><br><span class="line">        &#39;Cannot handle token prior to &#39; . \date(DateTime::ISO8601, $payload-&gt;iat)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中他檢查$payload-&gt;iat 是否存在以及 $payload-&gt;iat的時間是否小於業務系統端的時間<br>依據上面的數據顯示payload-&gt;iat = 1616722597 是大於 time() = 1616722595<br>而產生此Error<br>看下來原來是api伺服器的時間與業務系統所在的機器時間有些小偏差所致。</p>
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/27/firebase-php-jwt-Cannot-handle-token-prior-to-timestamp/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1013,20 +1121,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -1069,12 +1177,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">10k</span>
+    <span title="總字數">12k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">9 分鐘</span>
+    <span title="所需總閱讀時間">11 分鐘</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
   </div>
