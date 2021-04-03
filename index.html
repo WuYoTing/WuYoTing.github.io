@@ -172,6 +172,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/04/03/How-does-Facebook-generate-unique-IDs-across-all-of-their-models/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.ibb.co/GFxQCyj/tim-profile-pic.jpg">
+      <meta itemprop="name" content="tim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="life will change">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/03/How-does-Facebook-generate-unique-IDs-across-all-of-their-models/" class="post-title-link" itemprop="url">[翻譯]How does Facebook generate unique IDs across all of their models?</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-04-03 22:11:08 / 修改時間：22:29:25" itemprop="dateCreated datePublished" datetime="2021-04-03T22:11:08+08:00">2021-04-03</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/04/03/How-does-Facebook-generate-unique-IDs-across-all-of-their-models/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/03/How-does-Facebook-generate-unique-IDs-across-all-of-their-models/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>309</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>1 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a target="_blank" rel="noopener" href="https://www.quora.com/How-does-Facebook-generate-unique-IDs-across-all-of-their-models/answer/Harrison-Fisk">翻譯來源</a><br></p>
+<hr>
+<p>Facebook使用了一個大型的MySQL分段式設置，既用於生成id值，也用於存儲實際數據本身（所以它不是一個獨立的系統）。</p>
+<p>每個分段都會從64位元的範圍中得到非常大的一塊id值。然後，它使用一個auto_increment MySQL欄位和一些簡單的數學計算，計算出分配給分段的id範圍內的新值。</p>
+<p>例如，你可以給分段 #1分配一個0到1億的範圍。shard #2可以是1億到2億，等等。然後，每個都可以相互獨立地分配新的唯一id。</p>
+<p>由於我們處理的是64位的整數，你可以為每一個做非常大的範圍，並且仍然有非常多的分段。</p>
+<p>每個分段都會跟蹤生成的id值，以及與之相關聯的數據類型，所以給定一個完全未知的id，你可以計算出它。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/04/01/%E8%BA%AB%E4%BB%BD%E8%AD%89%E5%8A%A0%E6%AC%8A%E8%A8%98%E7%AE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -203,8 +296,17 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-04-02 00:51:36" itemprop="dateModified" datetime="2021-04-02T00:51:36+08:00">2021-04-02</time>
+                <time title="修改時間：2021-04-02 00:53:04" itemprop="dateModified" datetime="2021-04-02T00:53:04+08:00">2021-04-02</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BB%9F%E9%AB%94%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">軟體安全</span></a>
+                </span>
+            </span>
 
           
   
@@ -1229,7 +1331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1285,12 +1387,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">12k</span>
+    <span title="總字數">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">11 分鐘</span>
+    <span title="所需總閱讀時間">12 分鐘</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
   </div>
