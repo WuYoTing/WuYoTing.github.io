@@ -172,6 +172,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.ibb.co/GFxQCyj/tim-profile-pic.jpg">
+      <meta itemprop="name" content="tim">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="life will change">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/" class="post-title-link" itemprop="url">[紀錄]ubuntu 18.04 mysql 8.0 移除 sql_mode 中的 only_full_group_by</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-07-10 18:21:44 / 修改時間：20:39:37" itemprop="dateCreated datePublished" datetime="2021-07-10T18:21:44+08:00">2021-07-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="文章字數">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">文章字數：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="所需閱讀時間">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+              <span>2 分鐘</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="於ubuntu-18-04-mysql-8-0-移除-sql-mode-中的-only-full-group-by"><a href="#於ubuntu-18-04-mysql-8-0-移除-sql-mode-中的-only-full-group-by" class="headerlink" title="於ubuntu 18.04 mysql 8.0 移除  sql_mode 中的 only_full_group_by"></a>於ubuntu 18.04 mysql 8.0 移除 <br/> sql_mode 中的 only_full_group_by</h4><hr>
+<p>某天在開發<a target="_blank" rel="noopener" href="https://isthereanyclothes.site/">isthereanyclothes</a>這個專案時在DBeaver上先寫Query看看沒想到跑出<br><br><code>SQL Error [1055] [42000]: Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by</code></p>
+<p>SELECT 列表中的第二個表達式不在 GROUP BY 的子句中，同時它也不是聚合函數；這與 sql 模式：ONLY_FULL_GROUP_BY 不相容。</p>
+<p><strong>sql_mode=only_full_group_by</strong></p>
+<ol>
+<li>先找官方說明看看</li>
+</ol>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by">5.1.10 Server SQL Modes</a> 其中提到了<br><br><code>ONLY_FULL_GROUP_BY Reject queries for which the select list, HAVING condition, or ORDER BY list refer to nonaggregated columns that are neither named in the GROUP BY clause nor are functionally dependent on (uniquely determined by) GROUP BY columns.</code><br><br>ONLY_FULL_GROUP_BY<br>如果Queries中 SELECT 中的列、HAVING 語句或者ORDER BY子句的列，沒有在GROUP BY子句中命名的非聚合列出現而且也非功能上的依賴GROUP BY列，那麼這個SQL是不合法</p>
+<p>ONLY_FULL_GROUP_BY是MySQL提供的一個sql_mode，通過這個sql_mode來提供SQL語句GROUP BY合法性的檢查，在MySQL的sql_mode是非ONLY_FULL_GROUP_BY語義時。<br><em>所以語法上比較嚴謹</em></p>
+<p><strong>基於對於SQL的掌握的還沒有很熟悉，我決定先拿掉ONLY_FULL_GROUP_BY來方便的開發如果今後有相對的影響會再想文章，權衡比較</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/07/04/Fix-PyMysql-Update-Fail/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1193,113 +1306,6 @@ cursor is the object used to interact with the database<br>cursor._last_executed
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/01/29/New-Post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.ibb.co/GFxQCyj/tim-profile-pic.jpg">
-      <meta itemprop="name" content="tim">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="life will change">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/29/New-Post/" class="post-title-link" itemprop="url">Apache 2.4多php版本共存</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-01-29 17:34:11" itemprop="dateCreated datePublished" datetime="2021-01-29T17:34:11+08:00">2021-01-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-02-11 10:53:03" itemprop="dateModified" datetime="2021-02-11T10:53:03+08:00">2021-02-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Laravel/" itemprop="url" rel="index"><span itemprop="name">Laravel</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/01/29/New-Post/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/29/New-Post/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="文章字數">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">文章字數：</span>
-              <span>326</span>
-            </span>
-            <span class="post-meta-item" title="所需閱讀時間">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="工作上需求要做migration-預計PHP5-4要升級到7-4-而有如此需求"><a href="#工作上需求要做migration-預計PHP5-4要升級到7-4-而有如此需求" class="headerlink" title="工作上需求要做migration 預計PHP5.4要升級到7.4 而有如此需求**"></a>工作上需求要做migration 預計PHP5.4要升級到7.4 而有如此需求**</h3><hr>
-<p><strong>紀錄</strong><br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;domain&#x2F;api&#x2F;main_api&#x2F;xxxx.php  &lt;----- PHP5.6</span><br><span class="line">https:&#x2F;&#x2F;domain&#x2F;api_v2&#x2F;main_api&#x2F;xxxx.php  &lt;----PHP7.4 Laravel </span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://codertw.com/%e4%bc%ba%e6%9c%8d%e5%99%a8/138385/">Apache2.4多php共存</a><br><br><a target="_blank" rel="noopener" href="https://xyz.cinc.biz/2013/03/php_14.html">PHP 不同版本並存</a><br><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/23111987/configure-apache-with-fcgi">遇到錯誤</a><br></p>
-<hr>
-<p><strong>更新</strong><br><br>原本是基於PHP的API一時之間轉換到laravel上會有超長的學習期,與主管討論後決定先直接用vhost的方式讓APACH抓laravel的API,缺點就是PHP版本依樣維持在5.6</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1371,7 +1377,7 @@ cursor is the object used to interact with the database<br>cursor._last_executed
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1384,7 +1390,7 @@ cursor is the object used to interact with the database<br>cursor._last_executed
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -1427,12 +1433,12 @@ cursor is the object used to interact with the database<br>cursor._last_executed
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="總字數">14k</span>
+    <span title="總字數">16k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">12 分鐘</span>
+    <span title="所需總閱讀時間">14 分鐘</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
   </div>

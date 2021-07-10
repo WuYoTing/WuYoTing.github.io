@@ -22,22 +22,21 @@
     var CONFIG = {"hostname":"wuyoting.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言身為一個菜鳥的工程師免不了都對於GOOLE的開發及測試作法感到有興趣，在line社群中意外的得知了這本書就從海鮮拍賣上拉了古書翻譯本下來 Chapter  1 - gooole 測試軟體介紹  goole是一間奠基在創新與速度上的公司，在這樣的環境下進行的測試比須非常敏捷，有時邊開發邊寫測試會讓兩者交織，有時測試根本就是獨立進行  測試不會造成摩擦而會讓創新與開發的速度慢下來  別雇用太多的測">
+  <meta name="description" content="於ubuntu 18.04 mysql 8.0 移除  sql_mode 中的 only_full_group_by 某天在開發isthereanyclothes這個專案時在DBeaver上先寫Query看看沒想到跑出SQL Error [1055] [42000]: Expression #5 of SELECT list is not in GROUP BY clause and contai">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[心得 ]How Google Tests Software">
-<meta property="og:url" content="https://wuyoting.github.io/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/index.html">
+<meta property="og:title" content="[紀錄]ubuntu 18.04 mysql 8.0 移除 sql_mode 中的 only_full_group_by">
+<meta property="og:url" content="https://wuyoting.github.io/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/index.html">
 <meta property="og:site_name" content="life will change">
-<meta property="og:description" content="前言身為一個菜鳥的工程師免不了都對於GOOLE的開發及測試作法感到有興趣，在line社群中意外的得知了這本書就從海鮮拍賣上拉了古書翻譯本下來 Chapter  1 - gooole 測試軟體介紹  goole是一間奠基在創新與速度上的公司，在這樣的環境下進行的測試比須非常敏捷，有時邊開發邊寫測試會讓兩者交織，有時測試根本就是獨立進行  測試不會造成摩擦而會讓創新與開發的速度慢下來  別雇用太多的測">
+<meta property="og:description" content="於ubuntu 18.04 mysql 8.0 移除  sql_mode 中的 only_full_group_by 某天在開發isthereanyclothes這個專案時在DBeaver上先寫Query看看沒想到跑出SQL Error [1055] [42000]: Expression #5 of SELECT list is not in GROUP BY clause and contai">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-03-06T08:52:18.000Z">
-<meta property="article:modified_time" content="2021-03-06T09:16:07.758Z">
+<meta property="article:published_time" content="2021-07-10T10:21:44.000Z">
+<meta property="article:modified_time" content="2021-07-10T12:39:37.179Z">
 <meta property="article:author" content="tim">
-<meta property="article:tag" content="閱讀心得">
-<meta property="article:tag" content="goole">
-<meta property="article:tag" content="軟體測試">
+<meta property="article:tag" content="ubuntu 18.04">
+<meta property="article:tag" content="mysql 8">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wuyoting.github.io/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/">
+<link rel="canonical" href="https://wuyoting.github.io/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/">
 
 
 <script id="page-configurations">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title>[心得 ]How Google Tests Software | life will change</title>
+  <title>[紀錄]ubuntu 18.04 mysql 8.0 移除 sql_mode 中的 only_full_group_by | life will change</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZXC2F2KHH"></script>
     <script data-pjax>
@@ -179,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/">
+    <link itemprop="mainEntityOfPage" href="https://wuyoting.github.io/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.ibb.co/GFxQCyj/tim-profile-pic.jpg">
@@ -192,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [心得 ]How Google Tests Software
+          [紀錄]ubuntu 18.04 mysql 8.0 移除 sql_mode 中的 only_full_group_by
         </h1>
 
         <div class="post-meta">
@@ -203,7 +202,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-03-06 16:52:18 / 修改時間：17:16:07" itemprop="dateCreated datePublished" datetime="2021-03-06T16:52:18+08:00">2021-03-06</time>
+              <time title="創建時間：2021-07-10 18:21:44 / 修改時間：20:39:37" itemprop="dateCreated datePublished" datetime="2021-07-10T18:21:44+08:00">2021-07-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -211,7 +210,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%A6/" itemprop="url" rel="index"><span itemprop="name">軟體測試</span></a>
+                  <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
                 </span>
             </span>
 
@@ -224,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/06/心得-How-Google-TestsSoftware/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -235,14 +234,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">文章字數：</span>
-              <span>870</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="所需閱讀時間">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-              <span>1 分鐘</span>
+              <span>2 分鐘</span>
             </span>
 
         </div>
@@ -254,62 +253,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>身為一個菜鳥的工程師免不了都對於GOOLE的開發及測試作法感到有興趣，在line社群中意外的得知了這本書就從海鮮拍賣上拉了古書翻譯本下來</p>
-<h2 id="Chapter-1-gooole-測試軟體介紹"><a href="#Chapter-1-gooole-測試軟體介紹" class="headerlink" title="Chapter  1 - gooole 測試軟體介紹"></a>Chapter  1 - gooole 測試軟體介紹</h2><ol>
-<li> goole是一間奠基在創新與速度上的公司，在這樣的環境下進行的測試比須非常敏捷，有時邊開發邊寫測試會讓兩者交織，有時測試根本就是獨立進行</li>
-<li> 測試不會造成摩擦而會讓創新與開發的速度慢下來</li>
-<li> 別雇用太多的測試者(品質是開發者需要去維護的)</li>
-<li> goole重視品質勝過功能</li>
-<li> <strong>測試必須是開發過程中不可被忽略的面向，而開發與測試的融合就可以達到品質</strong>的要求</li>
-<li> 組織分工</li>
+        <h4 id="於ubuntu-18-04-mysql-8-0-移除-sql-mode-中的-only-full-group-by"><a href="#於ubuntu-18-04-mysql-8-0-移除-sql-mode-中的-only-full-group-by" class="headerlink" title="於ubuntu 18.04 mysql 8.0 移除  sql_mode 中的 only_full_group_by"></a>於ubuntu 18.04 mysql 8.0 移除 <br/> sql_mode 中的 only_full_group_by</h4><hr>
+<p>某天在開發<a target="_blank" rel="noopener" href="https://isthereanyclothes.site/">isthereanyclothes</a>這個專案時在DBeaver上先寫Query看看沒想到跑出<br><br><code>SQL Error [1055] [42000]: Expression #5 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by</code></p>
+<p>SELECT 列表中的第二個表達式不在 GROUP BY 的子句中，同時它也不是聚合函數；這與 sql 模式：ONLY_FULL_GROUP_BY 不相容。</p>
+<p><strong>sql_mode=only_full_group_by</strong></p>
+<ol>
+<li>先找官方說明看看</li>
 </ol>
-<ul>
-<li>SWE(software engineer)<ol>
-<li> 建立設計文件</li>
-<li> 設計架構</li>
-<li> 撰寫TDD與單元測試</li>
-</ol>
-</li>
-<li>SET(software engineer in test)<ol>
-<li> 以開發者角色</li>
-<li> 檢視設計且特別注意程式品質與風險</li>
-<li> 編寫單元測試框架與自動化</li>
-</ol>
-</li>
-<li>TE(Test Engineer)<ol>
-<li> 以使用者角度</li>
-<li> 撰寫自動化腳本的程式碼,模擬使用者情境的程式碼</li>
-<li> 組織整體品質實作</li>
-<li> 解釋測試結果</li>
-</ol>
-</li>
-</ul>
-<ol start="7">
-<li> goole是通常會製作出”最小可用產品”</li>
-<li> goole使用小,中,大測試來替代程式碼、整合與系統測試，用意是強調<strong>範圍比形式更加重要</strong></li>
-</ol>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by">5.1.10 Server SQL Modes</a> 其中提到了<br><br><code>ONLY_FULL_GROUP_BY Reject queries for which the select list, HAVING condition, or ORDER BY list refer to nonaggregated columns that are neither named in the GROUP BY clause nor are functionally dependent on (uniquely determined by) GROUP BY columns.</code><br><br>ONLY_FULL_GROUP_BY<br>如果Queries中 SELECT 中的列、HAVING 語句或者ORDER BY子句的列，沒有在GROUP BY子句中命名的非聚合列出現而且也非功能上的依賴GROUP BY列，那麼這個SQL是不合法</p>
+<p>ONLY_FULL_GROUP_BY是MySQL提供的一個sql_mode，通過這個sql_mode來提供SQL語句GROUP BY合法性的檢查，在MySQL的sql_mode是非ONLY_FULL_GROUP_BY語義時。<br><em>所以語法上比較嚴謹</em></p>
+<p><strong>基於對於SQL的掌握的還沒有很熟悉，我決定先拿掉ONLY_FULL_GROUP_BY來方便的開發如果今後有相對的影響會再想文章，權衡比較</strong></p>
 <span id="more"></span>
 
-<h2 id="Chapter-2-測試軟體工程師"><a href="#Chapter-2-測試軟體工程師" class="headerlink" title="Chapter  2 - 測試軟體工程師"></a>Chapter  2 - 測試軟體工程師</h2><ol>
-<li> 編寫功能碼與測試碼所隱含的是不同類型的思考</li>
-</ol>
-<ul>
-<li>  功能碼著重在創造與思考使用者、使用案例與工作流程</li>
-<li>  測試碼著重的則是破壞與編寫可以干擾使用者並中斷其工作流程的程式碼</li>
-</ul>
 <ol start="2">
-<li> 所有工程師都必須重複使用現有的程式庫，除非有正當的理由對於特定需求</li>
-<li> 所有共享程式碼必須都要能容易被找到與研讀</li>
-<li> 相依性必須清楚的呈現而且不容忽略</li>
-<li> 如果有工程師找到某件事更好的處理方式，要求他去條整現有的程式庫並協助相關專案遷移到新的程式庫上面，當然獎勵機制是必須的</li>
-<li> goole很重視code review，特別是通用程式碼</li>
-<li> 平台相依性必須要盡量降低(每位工程師都配給到相同的DEV環境)</li>
-<li> 在軟體變得重要之前，品質並不重要</li>
-<li> 過度投資在模擬環境自動化工程上，常會讓你被產品某項特定設計所限</li>
-<li> 小型測試可增加程式碼的品質，中大型測試可提升產品的品質</li>
-<li> 70/20/10 法則，小中大型測試的比率差異</li>
+<li>SET sql_mode</li>
 </ol>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>未讀完，等看完後補上</p>
+<hr>
+<p>我先以 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT @@sql_mode</span><br></pre></td></tr></table></figure>
+<p>來查詢目前Mysql的sql_mode，得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure>
+<p>看來目前是有開啟ONLY_FULL_GROUP_BY模式的，嘗試拿掉他</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SET sql_mode&#x3D;&#39;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,</span><br><span class="line">NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION&#39;</span><br></pre></td></tr></table></figure>
+<p>更改完後Query可以正常執行了</p>
+<ol start="3">
+<li>更改Mysql config</li>
+</ol>
+<hr>
+<p>之後我一個無聊看到Mysql uptime太久把它重啟，OK 設定又跑回來了，所以這次要改就改完，爬了一堆文後看到這篇有如救星一般<br><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/gzt19881123/article/details/109511245">mysql 8.0 配置文件my.cnf中文注解(CSDN連結)</a><br></p>
+<p>先回到我的Linode vps裡面/etc底下先找找看有沒有my字樣的檔案<br><br><em>沒有</em><br><br>然後我進到/etc/mysql資料夾裡面<br><font color=#0000FF>conf.d</font>  my.cnf  my.cnf.fallback  mysql.cnf <font color=#0000FF>conf.d</font><br>先用vi編輯器到my.cnf中察看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!includedir &#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;</span><br><span class="line">!includedir &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;</span><br></pre></td></tr></table></figure>
+<p>這邊可以看到的是my.cnf會從conf.d跟mysql.conf.d抓取config資料<br>接下來進去mysql.conf.d裡面有一個mysqld.cnf看來就是我們目標資料了<br>用vi編輯器到mysqld.cnf中察看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">pid-file        &#x3D; &#x2F;var&#x2F;run&#x2F;mysqld&#x2F;mysqld.pid</span><br><span class="line">socket          &#x3D; &#x2F;var&#x2F;run&#x2F;mysqld&#x2F;mysqld.sock</span><br><span class="line">datadir         &#x3D; &#x2F;var&#x2F;lib&#x2F;mysql</span><br><span class="line">log-error       &#x3D; &#x2F;var&#x2F;log&#x2F;mysql&#x2F;error.log</span><br></pre></td></tr></table></figure>
+<p><em>BINGO</em> 找到了<br>最後我在檔案中加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql_mode&#x3D;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure>
+<p>然後重啟Mysql後再用SELECT @@sql_mode檢查 OK</p>
+<hr>
+<p>參考自:<br><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/gzt19881123/article/details/109511245">mysql 8.0 配置文件my.cnf中文注解(CSDN連結)</a><br><br><a target="_blank" rel="noopener" href="https://www.gushiciku.cn/pl/pFxA/zh-tw">踩坑系列：MySql only_full_group_by配置，竟導致所有應用報錯</a><br><br></p>
 
     </div>
 
@@ -325,7 +306,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>文章連結：</strong>
-    <a href="https://wuyoting.github.io/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/" title="[心得 ]How Google Tests Software">https://wuyoting.github.io/2021/03/06/心得-How-Google-TestsSoftware/</a>
+    <a href="https://wuyoting.github.io/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/" title="[紀錄]ubuntu 18.04 mysql 8.0 移除 sql_mode 中的 only_full_group_by">https://wuyoting.github.io/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
@@ -336,9 +317,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%96%B1%E8%AE%80%E5%BF%83%E5%BE%97/" rel="tag"># 閱讀心得</a>
-              <a href="/tags/goole/" rel="tag"># goole</a>
-              <a href="/tags/%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%A6/" rel="tag"># 軟體測試</a>
+              <a href="/tags/ubuntu-18-04/" rel="tag"># ubuntu 18.04</a>
+              <a href="/tags/mysql-8/" rel="tag"># mysql 8</a>
           </div>
 
         
@@ -347,13 +327,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/05/%E7%BF%BB%E8%AD%AF-%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu-18-04%E4%B8%8A%E5%AE%89%E8%A3%9D-Certbot/" rel="prev" title="[翻譯 ]如何在Ubuntu 18.04上安裝 Certbot">
-      <i class="fa fa-chevron-left"></i> [翻譯 ]如何在Ubuntu 18.04上安裝 Certbot
+    <a href="/2021/07/04/Fix-PyMysql-Update-Fail/" rel="prev" title="[紀錄]Fix PyMysql Update Fail">
+      <i class="fa fa-chevron-left"></i> [紀錄]Fix PyMysql Update Fail
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/27/firebase-php-jwt-Cannot-handle-token-prior-to-timestamp/" rel="next" title="[Debug] firebase/php-jwt Cannot handle token prior to[timestamp] 的解決過程">
-      [Debug] firebase/php-jwt Cannot handle token prior to[timestamp] 的解決過程 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -419,7 +396,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-gooole-%E6%B8%AC%E8%A9%A6%E8%BB%9F%E9%AB%94%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.</span> <span class="nav-text">Chapter  1 - gooole 測試軟體介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-%E6%B8%AC%E8%A9%A6%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB"><span class="nav-number">3.</span> <span class="nav-text">Chapter  2 - 測試軟體工程師</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%BCubuntu-18-04-mysql-8-0-%E7%A7%BB%E9%99%A4-sql-mode-%E4%B8%AD%E7%9A%84-only-full-group-by"><span class="nav-number">1.</span> <span class="nav-text">於ubuntu 18.04 mysql 8.0 移除 
+ sql_mode 中的 only_full_group_by</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -627,9 +605,9 @@ window.addEventListener('pjax:success', () => {
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://wuyoting.github.io/2021/03/06/%E5%BF%83%E5%BE%97-How-Google-TestsSoftware/";
-    this.page.identifier = "2021/03/06/心得-How-Google-TestsSoftware/";
-    this.page.title = "[心得 ]How Google Tests Software";
+    this.page.url = "https://wuyoting.github.io/2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/";
+    this.page.identifier = "2021/07/10/ubuntu-18-04-mysql-8-0-remove-only-full-group-by/";
+    this.page.title = "[紀錄]ubuntu 18.04 mysql 8.0 移除 sql_mode 中的 only_full_group_by";
     this.language = "zh_TW";
   };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
